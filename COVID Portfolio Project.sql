@@ -47,7 +47,7 @@ order by Percentagepopulationinfected desc
 
 select location, max(CAST(total_deaths as int)) as TotalDeathCount
 from covid_deaths
-where continent <> ''
+where continent is not null
 group by location
 order by TotalDeathCount desc
 
@@ -61,7 +61,7 @@ order by TotalDeathCount desc;
 -- other then countries
 select location, max(CAST(total_deaths as int)) as TotalDeathCount
 from covid_deaths
-where continent = ''
+where continent is null
 group by location
 order by TotalDeathCount desc;
 use portfolioprojects
